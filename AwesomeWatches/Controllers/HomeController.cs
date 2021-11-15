@@ -1,12 +1,21 @@
-﻿using AwesomeWatches.Models;
+﻿using AwesomeWatches.Data;
+using AwesomeWatches.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AwesomeWatches.Controllers
 {
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private static readonly Cart _cart = new Cart();
+        private readonly WatchesContext db;
+        public HomeController(WatchesContext InjectedContext, ILogger<HomeController> logger)
+        {
+            _logger = logger;
+            db = InjectedContext;
+        }
+
 
         #region Helper Methods
         private void AssignCartItemCountToViewData()
@@ -18,7 +27,11 @@ namespace AwesomeWatches.Controllers
 
         public IActionResult Index()
         {
-            AssignCartItemCountToViewData();
+            var protducts = db.Products.ToList<Product>();
+            return View(protducts);
+        }
+        public IActionResult Details()
+        {
             return View();
         }
     }

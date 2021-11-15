@@ -3,6 +3,7 @@ using AwesomeWatches.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AwesomeWatches.Migrations
 {
     [DbContext(typeof(WatchesContext))]
-    partial class WatchesContextModelSnapshot : ModelSnapshot
+    [Migration("20211115180358_AddinRemainingEntities")]
+    partial class AddinRemainingEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,7 +127,7 @@ namespace AwesomeWatches.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("money");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("QuantityInStock")
                         .HasColumnType("int");
@@ -133,32 +135,6 @@ namespace AwesomeWatches.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Items");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Price = 8050m,
-                            QuantityInStock = 5
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Price = 3600m,
-                            QuantityInStock = 8
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Price = 18500m,
-                            QuantityInStock = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Price = 4300m,
-                            QuantityInStock = 3
-                        });
                 });
 
             modelBuilder.Entity("AwesomeWatches.Models.Product", b =>
@@ -186,36 +162,6 @@ namespace AwesomeWatches.Migrations
                         .IsUnique();
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Dark Side of the Moon",
-                            ItemId = 1,
-                            Name = "Omega Speedmaster"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Carrera Calibre 16",
-                            ItemId = 2,
-                            Name = "Tag Heuer"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Unico Titanium 42mnm",
-                            ItemId = 3,
-                            Name = "Hunlot Big Bang"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "BR V2-94 Grade-Cotes",
-                            ItemId = 4,
-                            Name = "Bell & Ross"
-                        });
                 });
 
             modelBuilder.Entity("CategoryProduct", b =>

@@ -8,9 +8,16 @@ public class WatchesContext : DbContext
     {
     }
     public DbSet<Category> Categories { get; set; }
-
+    public DbSet<Product> Products { get; set; }
+    public DbSet<Item> Items { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        //Redundant Code EFCore recommends this way only if ef couldn't detect the parent.
+        modelBuilder.Entity<Item>()
+        .HasOne(i => i.Product)
+        .WithOne(p => p.Item)
+        .HasForeignKey<Product>(p => p.ItemId);
+
         modelBuilder.Entity<Category>().HasData(new List<Category>{
                 new Category {
                     Id = 1,
@@ -72,6 +79,61 @@ public class WatchesContext : DbContext
                     Name = "Luxury Watch",
                     Description = "These watches are great for watch collectors or watch connoisseurs and the ones who appreciate great precision and handcrafted complications in a watch. Such watches are often encased in precious gemstones and other expensive materials."
                 },
+        });
+        modelBuilder.Entity<Item>().HasData(new List<Item>
+        {
+            new Item {
+                Id = 1,
+                Price = 8050M,
+                QuantityInStock = 5
+            },
+            new Item {
+                Id = 2,
+                Price = 3600M,
+                QuantityInStock =  8
+            },
+            new Item {
+                Id = 3,
+                Price = 18500M,
+                QuantityInStock = 1
+            },
+            new Item {
+                Id = 4,
+                Price = 4300M,
+                QuantityInStock = 3
+            }
+
+        });
+        modelBuilder.Entity<Product>().HasData(new List<Product>
+        {
+            new Product
+            {
+                Id = 1,
+                ItemId = 1,
+                Name = "Omega Speedmaster",
+                Description = "Dark Side of the Moon",
+            },
+            new Product
+            {
+                Id = 2,
+                ItemId = 2,
+                Name = "Tag Heuer",
+                Description = "Carrera Calibre 16"
+            },
+            new Product
+            {
+                Id = 3,
+                ItemId = 3,
+                Name =  "Hunlot Big Bang",
+                Description = "Unico Titanium 42mnm"
+            },
+            new Product
+            {
+                Id = 4,
+                ItemId = 4,
+                Name = "Bell & Ross",
+                Description = "BR V2-94 Grade-Cotes"
+            }
         });
     }
 }
