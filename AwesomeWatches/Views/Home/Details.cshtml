@@ -1,5 +1,25 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model AwesomeWatches.Models.Product
 @{
+    var product = Model;
 }
+
+<div class="container-details container">
+    <div class="product-details">
+        <div class="img-container">
+            <img src="~/Assets/Images/watches_pics/@(product.ItemId).png">
+        </div>
+        <div class="product-information-details">
+            <h6>Name: <span>@product.Name</span></h6>
+            <h6>Price: <span>@product.Item.Price</span></h6>
+        </div>
+    </div>
+    <div class="categories">
+        <h5>Categories:</h5>
+        @foreach (var category in @product.Categories)
+        {
+            <h6>@category.Name:</h6>
+            <p>@category.Description</p>
+            
+        }
+    </div>
+</div>

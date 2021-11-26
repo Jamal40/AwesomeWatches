@@ -1,4 +1,4 @@
-﻿namespace AwesomeWatches.Models
+﻿namespace AwesomeWatches.Models.ViewModels
 {
     public class CartViewModel
     {

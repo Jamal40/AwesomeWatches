@@ -1,0 +1,28 @@
+﻿@model AwesomeWatches.Models.ViewModels.CartViewModel
+
+@{
+    var Cart = Model;
+}
+
+<table class="highlight">
+    <thead>
+        <tr>
+            <th>Item Name</th>
+            <th>Item Price</th>
+            <th>Item Quantity</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var cartItem in Cart.CartItems)
+        {
+            <tr>
+                <td>@cartItem.Item.Product.Name</td>
+                <td>@cartItem.Item.Price.ToString("C")</td>
+                <td>@cartItem.Quantity</td>
+                <td>@cartItem.GetTotalPrice().ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

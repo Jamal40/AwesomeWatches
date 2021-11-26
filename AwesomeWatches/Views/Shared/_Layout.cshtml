@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/AwesomeWatches.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <body class="#f9fbe7 lime lighten-5">
     <nav>
         <div class="nav-wrapper #f0f4c3 lime lighten-4">
-            <a href="#!" class="">
+            <a asp-controller="Home" asp-action="Index" class="">
                 <img class="logo-img" src="~/Assets/Images/awesome-watches-logo.png" />
             </a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                <i class="fas fa-bars"></i>
+            </a>
             <ul class="right hide-on-med-and-down">
                 <li><a class="#827717-text lime-text text-darken-4" asp-controller="Home" asp-action="Index">Home</a></li>
                 <li><a class="#827717-text lime-text text-darken-4" asp-controller="Home" asp-action="Index">@ViewData["Shopping Cart Quantity"] </a></li>
@@ -32,11 +35,17 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - AwesomeWatches - <a asp-area="" asp-page="/Privacy">Privacy</a>
+
+    <footer class="page-footer #9e9d24 lime darken-3">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2021 AwesomeWatches
+                @*                <a class="grey-text text-lighten-4 right" href="#!">Jamal says Hi</a>
+                *@
+            </div>
         </div>
     </footer>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

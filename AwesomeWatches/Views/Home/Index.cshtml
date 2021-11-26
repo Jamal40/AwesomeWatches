@@ -1,5 +1,28 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model System.Collections.Generic.List<AwesomeWatches.Models.Product>
 @{
+    var products = Model;
 }
+
+<div class="products-container">
+    @foreach (var product in products)
+    {
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="~/Assets/Images/watches_pics/@(product.ItemId).png">
+                        <a asp-controller="Home" asp-action="Details" asp-route-id="@product.ItemId" class="card-title">@product.Name</a>
+                    </div>
+                    <div class="card-content">
+                        <p>
+                            @product.Description
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Add To Card</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
