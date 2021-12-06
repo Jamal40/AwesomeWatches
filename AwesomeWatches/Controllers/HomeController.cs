@@ -30,13 +30,15 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewData["Title"] = "Main";
         AssignCartItemCountToViewData();
         var protducts = db.Products.ToList<Product>();
         return View(protducts);
     }
 
-    public IActionResult Details([FromRoute] int id)
+    public IActionResult Details(int id)
     {
+        ViewData["Title"] = "Details";
         int itemId = id;
         var product = db.Products
             .Include(p => p.Item)
@@ -52,8 +54,10 @@ public class HomeController : Controller
             return RedirectToAction("Index");
         }
     }
+
     public IActionResult ShowCart()
     {
+        ViewData["Title"] = "Cart";
         var cartVM = new CartViewModel
         {
             CartItems = _cart.CartItems,
@@ -63,9 +67,12 @@ public class HomeController : Controller
         AssignCartItemCountToViewData();
         return View(cartVM);
     }
-    public IActionResult AddToCart(int itemId)
+
+    public IActionResult AddToCart(int id)
     {
+        int itemId = id;
         var product = db.Products
+            .Include(p => p.Item)
             .FirstOrDefault(p => p.ItemId == itemId);
 
         if (product != null)
@@ -77,8 +84,9 @@ public class HomeController : Controller
             };
             _cart.AddItem(cartItem);
         }
-        return View(nameof(ShowCart));
+        return RedirectToAction(nameof(ShowCart));
     }
+
     public IActionResult Privacy()
     {
         AssignCartItemCountToViewData();

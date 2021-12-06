@@ -1,0 +1,34 @@
+﻿@page
+@model AwesomeWatches.Pages.Admin.IndexModel
+@{
+    ViewData["Title"] = "Admin Home";
+}
+
+
+<div class="container">
+    <h5>Actions:</h5>
+    <div class="collection">
+        <a href="/Admin/AddWatch" class="collection-item  lime-text text-darken-3">Add a Watch</a>
+    </div>
+
+    <h5>Data:</h5>
+    <table >
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Item.Price</td>
+                    <td>@product.Item.QuantityInStock</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -12,34 +12,22 @@
 <body class="#f9fbe7 lime lighten-5">
     <nav>
         <div class="nav-wrapper #f0f4c3 lime lighten-4">
-            <a asp-controller="Home" asp-action="Index" class="">
+            <a asp-page="/admin" class="">
                 <img class="logo-img" src="~/Assets/Images/awesome-watches-logo.png" />
             </a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger">
                 <i class="fas fa-bars"></i>
             </a>
             <ul class="right hide-on-med-and-down">
-                <li><a class="#827717-text lime-text text-darken-4" asp-controller="Home" asp-action="Index">Home</a></li>
-                <li>
-                    <a class="#827717-text lime-text text-darken-4 cart-container" asp-controller="Home" asp-action="ShowCart">
-                        <label>@ViewData["Shopping Cart Quantity"]</label>
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                </li>
+                <li><span class="#827717-text lime-text text-darken-4">Hello, Folan</span></li>
+                <li><a class="#827717-text lime-text text-darken-4" href="#">Logout</a></li>
             </ul>
         </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-        <li>
-            <a class="#827717-text lime-text text-darken-4" asp-controller="Home" asp-action="ShowCart">
-                <div class="cart-container cart-container-sm">
-                    <label>@ViewData["Shopping Cart Quantity"]</label>
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-            </a>
-        </li>
+        <li><span class="">Hello, Folan</span></li>
+        <li><a href="#">Logout</a></li>
     </ul>
 
     <div class="container">

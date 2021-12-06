@@ -1,0 +1,37 @@
+﻿@page
+@model AwesomeWatches.Pages.Admin.AddWatchModel
+@{
+    ViewData["Title"] = "Add Watch";
+}
+
+<form class="container add-watch-form" method="post">
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="email" type="email" class="validate inp">
+            <label class="lime-text text-darken-2" for="email">Email</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea inp"></textarea>
+            <label class="lime-text text-darken-2" for="textarea1">Textarea</label>
+        </div>
+    </div>
+
+    <div class="categories-container">
+        @foreach (var category in @Model.Categories)
+        {
+            <p>
+                <label>
+                    <input value="@category.Id" type="checkbox" />
+                    <span>@category.Name</span>
+                </label>
+            </p>
+        }
+    </div>
+
+    <div class="row btn-container">
+        <a class="lime darken-2 waves-effect waves-light btn-large">Add</a>
+    </div>
+</form>
+

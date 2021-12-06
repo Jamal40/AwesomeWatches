@@ -33,6 +33,34 @@ body {
     height: 100%;
 }
 
+.fa-shopping-cart {
+    font-size: 1.25rem;
+}
+
+.cart-container label {
+    line-height: normal;
+}
+
+.cart-container i {
+    line-height: normal !important;
+    height: auto !important;
+}
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    height: 64px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-container-sm {
+    display: inline-flex;
+    vertical-align: middle;
+    height: auto;
+}
+
+
 .products-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -86,6 +114,47 @@ span {
 
 .categories p {
     margin: 0;
+}
+
+.add-watch-form {
+    padding-top: 1em;
+}
+
+.btn-container {
+    text-align: center;
+}
+
+label > span {
+    font-weight: bold;
+}
+
+
+/* label color */
+.add-watch-form .input-field label {
+    color: #afb42b;
+}
+/* label focus color */
+.add-watch-form .input-field .inp:focus + label {
+    color: #afb42b;
+}
+/* label underline focus color */
+.add-watch-form .input-field .inp:focus {
+    border-bottom: 1px solid #afb42b !important;
+    box-shadow: 0 1px 0 0 #afb42b !important;
+}
+/* valid color */
+.add-watch-form .input-field .inp.valid {
+    border-bottom: 1px solid #afb42b !important;
+    box-shadow: 0 1px 0 0 #afb42b !important;
+}
+/* invalid color */
+.add-watch-form .input-field .inp.invalid {
+    border-bottom: 1px solid #afb42b !important;
+    box-shadow: 0 1px 0 0 #afb42b !important;
+}
+/* icon prefix focus color */
+.add-watch-form .input-field .prefix.active {
+    color: #afb42b;
 }
 
 @media (max-width: 700px) {

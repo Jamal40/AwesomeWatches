@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeWatches", "AwesomeWatches\AwesomeWatches.csproj", "{D77A7710-7AA4-45BE-ADB9-B8A41BCBFEA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesomeWatches", "AwesomeWatches\AwesomeWatches.csproj", "{D77A7710-7AA4-45BE-ADB9-B8A41BCBFEA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{5A171E2F-2C87-44AA-9473-4626B640E131}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", "{5A171E2F-2C87-44AA-9473-4626B640E131}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{5DE3A884-F5B7-41A2-A00B-DC9ED6A17ACF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5A171E2F-2C87-44AA-9473-4626B640E131}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A171E2F-2C87-44AA-9473-4626B640E131}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A171E2F-2C87-44AA-9473-4626B640E131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DE3A884-F5B7-41A2-A00B-DC9ED6A17ACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE3A884-F5B7-41A2-A00B-DC9ED6A17ACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE3A884-F5B7-41A2-A00B-DC9ED6A17ACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE3A884-F5B7-41A2-A00B-DC9ED6A17ACF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
