@@ -9,10 +9,11 @@
     <h5>Actions:</h5>
     <div class="collection">
         <a href="/Admin/AddWatch" class="collection-item  lime-text text-darken-3">Add a Watch</a>
+        <a href="/Admin/AddCategory" class="collection-item  lime-text text-darken-3">Add a Category</a>
     </div>
 
-    <h5>Data:</h5>
-    <table >
+    <h5>Products:</h5>
+    <table>
         <thead>
             <tr>
                 <th>Name</th>
@@ -25,8 +26,30 @@
             {
                 <tr>
                     <td>@product.Name</td>
-                    <td>@product.Item.Price</td>
+                    <td>@product.Item.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
                     <td>@product.Item.QuantityInStock</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <br/>
+    <br/>
+
+    <h5>Categories:</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model.Categories)
+            {
+                <tr>
+                    <td>@category.Name</td>
+                    <td>@category.Description</td>
                 </tr>
             }
         </tbody>

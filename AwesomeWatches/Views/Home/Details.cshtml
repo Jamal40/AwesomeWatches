@@ -10,7 +10,9 @@
         </div>
         <div class="product-information-details">
             <h6>Name: <span>@product.Name</span></h6>
-            <h6>Price: <span>@product.Item.Price</span></h6>
+            <h6>Price: <span>@product.Item.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</span></h6>
+            <h6>Description:</h6>
+            <h6>&nbsp;&nbsp;<span>@product.Description</span></h6>
         </div>
     </div>
     <div class="categories">
@@ -19,7 +21,6 @@
         {
             <h6>@category.Name:</h6>
             <p>@category.Description</p>
-            
         }
     </div>
 </div>

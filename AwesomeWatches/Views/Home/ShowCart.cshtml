@@ -19,9 +19,9 @@
         {
             <tr>
                 <td>@cartItem.Item.Product.Name</td>
-                <td>@cartItem.Item.Price.ToString("C")</td>
+                <td>@cartItem.Item.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
                 <td>@cartItem.Quantity</td>
-                <td>@cartItem.GetTotalPrice().ToString("C")</td>
+                <td>@cartItem.GetTotalPrice().ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
             </tr>
         }
     </tbody>

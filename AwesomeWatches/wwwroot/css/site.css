@@ -71,6 +71,25 @@ body {
 }
 
 /*Card*/
+.card {
+    max-width: 200px;
+}
+
+.card-content p {
+    padding-inline: 0.5em;
+}
+
+.card-content {
+    padding:0 !important;
+    padding-inline: 0 !important;
+    padding-block:24px !important;
+}
+
+
+.card-image img {
+    max-width: 200px;
+}
+
 .card-image {
     background-color: darkgray;
     height: 275px;
@@ -78,9 +97,7 @@ body {
     align-items: center;
 }
 
-    .card-image img {
-        max-width: 200px;
-    }
+
 /* Details Page */
 .product-details {
     display: flex;
@@ -97,6 +114,7 @@ span {
     border: 0.5px solid black;
     border-radius: 10px;
     height: 300px;
+    max-width: 250px;
 }
 
 .container-details {
@@ -116,7 +134,7 @@ span {
     margin: 0;
 }
 
-.add-watch-form {
+.add-form {
     padding-top: 1em;
 }
 
@@ -128,38 +146,53 @@ label > span {
     font-weight: bold;
 }
 
+.file-path::placeholder {
+    color: #424242;
+}
 
 /* label color */
-.add-watch-form .input-field label {
+.add-form .input-field label {
     color: #afb42b;
 }
 /* label focus color */
-.add-watch-form .input-field .inp:focus + label {
+.add-form .input-field .inp:focus + label {
     color: #afb42b;
 }
 /* label underline focus color */
-.add-watch-form .input-field .inp:focus {
+.add-form .input-field .inp:focus {
     border-bottom: 1px solid #afb42b !important;
     box-shadow: 0 1px 0 0 #afb42b !important;
 }
 /* valid color */
-.add-watch-form .input-field .inp.valid {
+.add-form .input-field .inp.valid {
     border-bottom: 1px solid #afb42b !important;
     box-shadow: 0 1px 0 0 #afb42b !important;
 }
 /* invalid color */
-.add-watch-form .input-field .inp.invalid {
+.add-form .input-field .inp.invalid {
     border-bottom: 1px solid #afb42b !important;
     box-shadow: 0 1px 0 0 #afb42b !important;
 }
 /* icon prefix focus color */
-.add-watch-form .input-field .prefix.active {
+.add-form .input-field .prefix.active {
     color: #afb42b;
 }
 
 @media (max-width: 700px) {
     .products-container {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container-details .img-container {
+        text-align: center;
+    }
+
+    .product-details {
+        flex-direction: column;
+    }
+
+    .container-details {
+        padding: 0.5em;
     }
 }
 

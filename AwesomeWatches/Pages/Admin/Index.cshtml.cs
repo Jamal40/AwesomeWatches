@@ -8,6 +8,8 @@ namespace AwesomeWatches.Pages.Admin;
 public class IndexModel : PageModel
 {
     public IEnumerable<Product> Products { get; set; }
+    public IEnumerable<Category> Categories { get; set; }
+
     private readonly WatchesContext _context;
 
     public IndexModel(WatchesContext injectedContext)
@@ -17,6 +19,7 @@ public class IndexModel : PageModel
     public void OnGet()
     {
         Products = _context.Products.Include(p => p.Item).ToList();
+        Categories = _context.Categories.ToList();
     }
 }
 

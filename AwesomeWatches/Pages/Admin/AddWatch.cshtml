@@ -4,17 +4,41 @@
     ViewData["Title"] = "Add Watch";
 }
 
-<form class="container add-watch-form" method="post">
+<form class="container add-form" method="post" enctype="multipart/form-data">
     <div class="row">
         <div class="input-field col s12">
-            <input id="email" type="email" class="validate inp">
-            <label class="lime-text text-darken-2" for="email">Email</label>
+            <input asp-for="ItemToAdd.Name" class="validate inp">
+            <label asp-for="ItemToAdd.Name" class="lime-text text-darken-2"></label>
+            <span asp-validation-for="ItemToAdd.Name" class="helper-text #e53935 red-text text-darken-1"></span>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <textarea id="textarea1" class="materialize-textarea inp"></textarea>
-            <label class="lime-text text-darken-2" for="textarea1">Textarea</label>
+            <input asp-for="ItemToAdd.Price" class="validate inp">
+            <label asp-for="ItemToAdd.Price" class="lime-text text-darken-2"></label>
+            <span asp-validation-for="ItemToAdd.Price" class="helper-text #e53935 red-text text-darken-1"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input asp-for="ItemToAdd.QuantityInStock" class="validate inp">
+            <label asp-for="ItemToAdd.QuantityInStock" class="lime-text text-darken-2"></label>
+            <span asp-validation-for="ItemToAdd.QuantityInStock" class="helper-text #e53935 red-text text-darken-1"></span>
+        </div>
+    </div>
+    <div class="file-field input-field">
+        <div class="btn">
+            <span>Watch Image</span>
+            <input asp-for="ItemToAdd.Picture" type="file">
+        </div>
+        <div class="file-path-wrapper">
+            <input asp-for="ItemToAdd.Picture" class="file-path validate" type="text" placeholder="Upload the image.">
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea asp-for="ItemToAdd.Description" class="materialize-textarea inp"></textarea>
+            <label asp-for="ItemToAdd.Description" class="lime-text text-darken-2"></label>
         </div>
     </div>
 
@@ -30,8 +54,37 @@
         }
     </div>
 
+    <input type="hidden" asp-for="ItemToAdd.CategoriesString" class="validate inp">
+
+
     <div class="row btn-container">
-        <a class="lime darken-2 waves-effect waves-light btn-large">Add</a>
+        <button onclick="submitAddedWatch()" class="lime darken-2 waves-effect waves-light btn-large">Add</button>
     </div>
 </form>
 
+@section Scripts
+{
+<script>
+    const categoriesCheckboxes =
+        document.querySelectorAll(".categories-container input");
+
+    const selectedCategories = new Map();
+
+    for (let i = 0; i < categoriesCheckboxes.length; i++) {
+        categoriesCheckboxes[i].addEventListener("change", (e) => {
+            const boxValue = e.target.value;
+            if (e.target.checked) {
+                selectedCategories.set(boxValue, boxValue);
+            }
+
+            if (!e.target.checked) {
+                selectedCategories.delete(boxValue);
+            }
+        })
+    }
+
+    submitAddedWatch = () => {
+        document.querySelector("input[type='hidden']").value = Array.from(selectedCategories.values()).join(",");
+    }
+</script>
+}
