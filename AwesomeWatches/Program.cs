@@ -1,10 +1,22 @@
 using AwesomeWatches.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("AwesomeWatches");
+
+builder.Services.AddDbContext<WatchesContext>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<WatchesContext>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddRazorPagesOptions(options =>
+    options.Conventions.AuthorizeFolder("/Admin"));
 builder.Services.AddSqlServer<WatchesContext>("name=ConnectionStrings:AwesomeWatches");
 var app = builder.Build();
 
@@ -20,7 +32,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

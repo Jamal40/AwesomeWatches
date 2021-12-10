@@ -1,8 +1,9 @@
 ﻿using AwesomeWatches.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 namespace AwesomeWatches.Data;
 
-public class WatchesContext : DbContext
+public class WatchesContext : IdentityDbContext
 {
     public WatchesContext(DbContextOptions<WatchesContext> options) : base(options)
     {
@@ -135,6 +136,8 @@ public class WatchesContext : DbContext
                 Description = "BR V2-94 Grade-Cotes"
             }
         });
+
+        base.OnModelCreating(modelBuilder);
     }
 }
 
