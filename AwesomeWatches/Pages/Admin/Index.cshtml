@@ -19,6 +19,7 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@
                     <td>@product.Name</td>
                     <td>@product.Item.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
                     <td>@product.Item.QuantityInStock</td>
+                    <td><a class="orange darken-2 waves-effect waves-light btn" href="/Admin/EditWatch/@product.Id">Edit</a></td>
                 </tr>
             }
         </tbody>

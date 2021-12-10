@@ -10,7 +10,7 @@ public class AddCategoryModel : PageModel
     private readonly WatchesContext context;
 
     [BindProperty()]
-    public Category Category { get; set; }
+    public Category CategoryToAdd { get; set; }
 
     public AddCategoryModel(WatchesContext injectedContext)
     {
@@ -18,10 +18,14 @@ public class AddCategoryModel : PageModel
     }
     public IActionResult OnPost()
     {
-        context.Categories.Add(Category);
+        if (!ModelState.IsValid)
+        {
+            return Page();
+        }
+        context.Categories.Add(CategoryToAdd);
         context.SaveChanges();
 
-        return RedirectToPage(nameof(IndexModel.Page));
+        return RedirectToPage("Index");
     }
     public void OnGet()
     {

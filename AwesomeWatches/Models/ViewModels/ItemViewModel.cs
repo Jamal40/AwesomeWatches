@@ -1,6 +1,6 @@
 ﻿namespace AwesomeWatches.Models.ViewModels;
 
-public class AddItemModel
+public class ItemViewModel
 {
     public int Id { get; set; }
     public decimal Price { get; set; }
@@ -8,6 +8,5 @@ public class AddItemModel
     public string Name { get; set; }
     public string Description { get; set; }
     public string CategoriesString { get; set; }
-    public IFormFile Picture { get; set; }
-
+    public IFormFile? Picture { get; set; }
 }

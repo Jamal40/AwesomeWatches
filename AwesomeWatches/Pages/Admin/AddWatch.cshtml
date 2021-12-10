@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <div class="categories-container">
+    <div class="add-watch-categories-container">
         @foreach (var category in @Model.Categories)
         {
             <p>
@@ -54,7 +54,7 @@
         }
     </div>
 
-    <input type="hidden" asp-for="ItemToAdd.CategoriesString" class="validate inp">
+    <input class="add-watch-categories" type="hidden" asp-for="ItemToAdd.CategoriesString" class="validate inp">
 
 
     <div class="row btn-container">
@@ -66,7 +66,7 @@
 {
 <script>
     const categoriesCheckboxes =
-        document.querySelectorAll(".categories-container input");
+        document.querySelectorAll(".add-watch-categories-container input");
 
     const selectedCategories = new Map();
 
@@ -84,7 +84,7 @@
     }
 
     submitAddedWatch = () => {
-        document.querySelector("input[type='hidden']").value = Array.from(selectedCategories.values()).join(",");
+        document.querySelector(".add-watch-categories").value = Array.from(selectedCategories.values()).join(",");
     }
 </script>
 }

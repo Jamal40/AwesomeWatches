@@ -9,7 +9,7 @@ namespace AwesomeWatches.Pages.Admin;
 public class AddWatchModel : PageModel
 {
     [BindProperty()]
-    public AddItemModel ItemToAdd { get; set; }
+    public ItemViewModel ItemToAdd { get; set; }
     private readonly WatchesContext context;
 
     public ICollection<Category> Categories { get; set; }
@@ -30,6 +30,7 @@ public class AddWatchModel : PageModel
             Price = ItemToAdd.Price,
             QuantityInStock = ItemToAdd.QuantityInStock
         };
+
         var product = new Product
         {
             Name = ItemToAdd.Name,
@@ -48,7 +49,7 @@ public class AddWatchModel : PageModel
 
         AddImageToStorage(product);
 
-        return RedirectToPage(nameof(IndexModel.Page));
+        return RedirectToPage("Index");
     }
 
     private void AddImageToStorage(Product product)
