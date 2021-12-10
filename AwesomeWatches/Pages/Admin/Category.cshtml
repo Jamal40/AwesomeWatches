@@ -1,0 +1,24 @@
+﻿@page "{id:int?}"
+@model AwesomeWatches.Pages.Admin.CategoryModel
+@{
+    ViewData["Title"] = "Add Category";
+}
+
+<form class="container add-form" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="input-field col s12">
+            <input asp-for="RequiredCategory.Name" class="validate inp">
+            <label asp-for="RequiredCategory.Name" class="lime-text text-darken-2"></label>
+            <span asp-validation-for="RequiredCategory.Name" class="helper-text #e53935 red-text text-darken-1"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea asp-for="RequiredCategory.Description" class="materialize-textarea inp"></textarea>
+            <label asp-for="RequiredCategory.Description" class="lime-text text-darken-2"></label>
+        </div>
+    </div>
+    <div class="row btn-container">
+        <button onclick="submitAddedWatch()" class="lime darken-2 waves-effect waves-light btn-large">Add</button>
+    </div>
+</form>
