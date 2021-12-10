@@ -99,12 +99,16 @@ body {
 
 
 /* Details Page */
+
 .product-details {
     display: flex;
     justify-content: flex-start;
     gap: 20px;
 }
 
+.details-header{
+    font-weight: 600 !important;
+}
 
 span {
     font-weight: lighter;

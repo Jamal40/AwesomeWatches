@@ -9,17 +9,17 @@
             <img src="~/Assets/Images/watches_pics/@(product.ItemId).png">
         </div>
         <div class="product-information-details">
-            <h6>Name: <span>@product.Name</span></h6>
-            <h6>Price: <span>@product.Item.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</span></h6>
-            <h6>Description:</h6>
-            <h6>&nbsp;&nbsp;<span>@product.Description</span></h6>
+            <h6 class="details-header">Name: <span>@product.Name</span></h6>
+            <h6 class="details-header">Price: <span>@product.Item.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</span></h6>
+            <h6 class="details-header">Description:</h6>
+            <h6 class="details-header"><span>@product.Description</span></h6>
         </div>
     </div>
     <div class="categories">
         <h5>Categories:</h5>
         @foreach (var category in @product.Categories)
         {
-            <h6>@category.Name:</h6>
+            <h6 class="details-header">@category.Name:</h6>
             <p>@category.Description</p>
         }
     </div>
