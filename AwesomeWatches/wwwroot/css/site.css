@@ -29,6 +29,15 @@ body {
     margin-bottom: auto !important;
 }
 
+[type="checkbox"].filled-in:checked + span:not(.lever)::after {
+    background-color: #a0ac2c !important;
+    border-color: #cddc39 !important;
+}
+
+.nav-item a {
+    color: #827717 !important;
+}
+
 .logo-img {
     height: 100%;
 }
@@ -80,9 +89,9 @@ body {
 }
 
 .card-content {
-    padding:0 !important;
+    padding: 0 !important;
     padding-inline: 0 !important;
-    padding-block:24px !important;
+    padding-block: 24px !important;
 }
 
 
@@ -106,7 +115,7 @@ body {
     gap: 20px;
 }
 
-.details-header{
+.details-header {
     font-weight: 600 !important;
 }
 

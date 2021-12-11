@@ -12,15 +12,14 @@
 <body class="#f9fbe7 lime lighten-5">
     <nav>
         <div class="nav-wrapper #f0f4c3 lime lighten-4">
-            <div>
-                <partial name="_LoginPartial"></partial>
-            </div>
+            <a href="/Admin/Index" class="">
+                <img class="logo-img" src="~/Assets/Images/awesome-watches-logo.png" />
+            </a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars lime-text text-darken-4"></i>
             </a>
             <ul class="right hide-on-med-and-down">
-                <li><span class="#827717-text lime-text text-darken-4">Hello, Folan</span></li>
-                <li><a class="#827717-text lime-text text-darken-4" href="#">Logout</a></li>
+                <partial name="_LoginPartial"></partial>
             </ul>
         </div>
     </nav>

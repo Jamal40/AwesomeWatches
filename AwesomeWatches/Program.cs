@@ -17,6 +17,20 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews()
     .AddRazorPagesOptions(options =>
     options.Conventions.AuthorizeFolder("/Admin"));
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.SignIn.RequireConfirmedEmail = false;
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequiredUniqueChars = 1;
+
+});
+
 builder.Services.AddSqlServer<WatchesContext>("name=ConnectionStrings:AwesomeWatches");
 var app = builder.Build();
 

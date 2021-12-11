@@ -23,6 +23,9 @@
                 <td>@cartItem.Quantity</td>
                 <td>@cartItem.GetTotalPrice().ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
             </tr>
+
+            
         }
     </tbody>
 </table>
+<h5>Order Total: <span>@Model.OrderTotal.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</span> </h5>
