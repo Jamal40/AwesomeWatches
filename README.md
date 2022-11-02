@@ -5,7 +5,7 @@ AwesomeWatches is a simple e-commerce app. In which the user can add items to th
 The project has another division, which is the admin pages. In these pages the admins need to be authorized, so that they can manipulate the items data.
 The project utilizes 2 major ASP web apps models(ASP MVC and ASP Razor Pages).
 
-##B uilt With:
+## Built With:
 
 ### Framework:
 .Net6: ASP.Net Core was used to buid the application(MVC & Razor Pages).
